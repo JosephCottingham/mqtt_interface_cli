@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-// Stores the credentals requried to connect to a MQTT broker
+// Stores the credentials required to connect to a MQTT broker
 type Broker struct {
 	Uuid       string `json:"uuid"`
 	Name       string `json:"name"`
@@ -23,7 +23,7 @@ type Broker struct {
 	Password   string `json:"password"`
 }
 
-// Storages the list of mqtt broker credentails
+// Storages the list of mqtt broker credentials
 type BrokerData struct {
 	Brokers []Broker `json:"brokers"`
 	Hash    []byte   `json:"hash"`
