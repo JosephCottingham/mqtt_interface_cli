@@ -1,11 +1,11 @@
 package main
 
 import (
-	"strconv"
-	"os"
-	ishell "github.com/abiosoft/ishell/v2"
 	brokerManager "github.com/JosephCottingham/mqtt_interface_cli/brokerManager"
 	mqtt "github.com/JosephCottingham/mqtt_interface_cli/mqtt"
+	ishell "github.com/abiosoft/ishell/v2"
+	"os"
+	"strconv"
 )
 
 func StartShell(brokerData brokerManager.BrokerData, password string) {
@@ -54,7 +54,7 @@ func StartShell(brokerData brokerManager.BrokerData, password string) {
 		Help: "Set password",
 		Func: resetPassword,
 	})
-	
+
 	// run shell
 	shell.Run()
 }
@@ -139,10 +139,9 @@ func removeBroker(c *ishell.Context) {
 	brokerData, _ := brokerManager.ReadBrokerData(password)
 	brokerData = brokerManager.RemoveBroker(brokerData, broker, password)
 	c.Set("brokerData", brokerData)
-	
+
 	c.Printf("Broker %s Removed\b", broker.Name)
 }
-
 
 func resetPassword(c *ishell.Context) {
 
@@ -157,7 +156,7 @@ func resetPassword(c *ishell.Context) {
 	password = c.ReadPassword()
 	c.Printf("Enter New Password: ")
 	confirmPassword := c.ReadPassword()
-	if (password != confirmPassword) {
+	if password != confirmPassword {
 		c.Printf("Entered Passwords Did not Match...")
 		return
 	}

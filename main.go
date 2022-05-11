@@ -1,12 +1,12 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 	brokerManager "github.com/JosephCottingham/mqtt_interface_cli/brokerManager"
-    // "time"
-    "os"
-    "syscall"
-    "golang.org/x/term"
+	// "time"
+	"golang.org/x/term"
+	"os"
+	"syscall"
 )
 
 func main() {
@@ -25,15 +25,15 @@ func main() {
 }
 
 func PasswordPrompt(label string) string {
-    var s string
-    for {
-        fmt.Fprint(os.Stderr, label+" ")
-        b, _ := term.ReadPassword(int(syscall.Stdin))
-        s = string(b)
-        if s != "" {
-            break
-        }
-    }
-    fmt.Println()
-    return s
+	var s string
+	for {
+		fmt.Fprint(os.Stderr, label+" ")
+		b, _ := term.ReadPassword(int(syscall.Stdin))
+		s = string(b)
+		if s != "" {
+			break
+		}
+	}
+	fmt.Println()
+	return s
 }
