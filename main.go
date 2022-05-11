@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	brokerManager "github.com/JosephCottingham/mqtt_interface_cli/brokerManager"
-	// "time"
 	"golang.org/x/term"
 	"os"
 	"syscall"
