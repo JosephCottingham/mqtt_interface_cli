@@ -74,7 +74,7 @@ func ReadBrokerData(password string) (BrokerData, error) {
 		fmt.Println(err)
 	}
 	brokerDataJsonBytesEncrypted := []byte(dat)
-	brokerDataJsonBytes, err := decrypt([]byte(password), brokerDataJsonBytesEncrypted)
+	brokerDataJsonBytes, _ := decrypt([]byte(password), brokerDataJsonBytesEncrypted)
 
 	_ = json.Unmarshal(brokerDataJsonBytes, &brokerData)
 
@@ -83,7 +83,7 @@ func ReadBrokerData(password string) (BrokerData, error) {
 
 func WriteBrokerData(brokerData BrokerData, password string) {
 	brokerDataFilepath := getBrokerDataFilepath()
-	brokerDataJson, err := json.Marshal(&brokerData)
+	brokerDataJson, _ := json.Marshal(&brokerData)
 
 	brokerDataJsonBytes := []byte(string(brokerDataJson))
 	brokerDataJsonBytesEncrypted, err := encrypt([]byte(password), brokerDataJsonBytes)
